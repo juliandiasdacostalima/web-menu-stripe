@@ -54,4 +54,4 @@ def create_checkout_session():
     return redirect(checkout_session.url, code=303)
 
 if __name__ == '__main__':
-    app.run(port=4242)
+    app.run(host='0.0.0.0', port=int(os.environ.get('PORT', 8000)))
