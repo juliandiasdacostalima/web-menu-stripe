@@ -6,7 +6,7 @@ import logging
 
 logging.basicConfig(level=logging.DEBUG)
 
-stripe.api_key = "sk_test_51RFa3uAc0zWUIiwIyOky03kYSRsQZLrkEzE4EAJ1FbzjDnDo9vgSPWOSbi4fdN3sV3MlwpNdHCZSUzcBgFLhmdHU00nYCPN6RQ"
+stripe.api_key = os.environ["STRIPE_SECRET_KEY"]
 
 app = Flask(__name__)
 
@@ -16,7 +16,7 @@ products = [
     {'id': 'prod_3', 'name': 'Producto 3', 'price': 20}
 ]
 
-YOUR_DOMAIN = 'http://localhost:4242'
+YOUR_DOMAIN = os.environ.get('APP_DOMAIN')
 
 @app.route('/')
 def index():
